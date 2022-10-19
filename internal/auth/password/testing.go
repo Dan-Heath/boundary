@@ -85,7 +85,6 @@ func TestAccount(t testing.TB, conn *db.DB, authMethodId, loginName string, opt 
 	assert.NoError(err)
 	require.NotEmpty(id)
 	cat.PublicId = id
-
 	ctx := context.Background()
 	_, err2 := w.DoTx(ctx, db.StdRetryCnt, db.ExpBackoff{},
 		func(_ db.Reader, iw db.Writer) error {
